@@ -3,74 +3,134 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hola, world!</title>
+    <title>Hola, world.</title>
     <style>
       :root {
-        color-scheme: light;
+        color-scheme: dark;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: #f7f7f5;
-        color: #20211f;
+        background: #293a30;
+        color: #f2ead7;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
-        display: grid;
         min-height: 100vh;
         margin: 0;
+      }
+
+      main {
+        position: relative;
+        display: grid;
+        min-height: 100vh;
+        min-height: 100svh;
+        overflow: hidden;
+        isolation: isolate;
+        padding: 2rem;
         place-items: center;
+        background:
+          radial-gradient(ellipse at 50% 48%, rgb(80 91 62 / 44%), transparent 58%),
+          linear-gradient(135deg, #35483a, #26372e 58%, #3b4432);
+      }
+
+      main::after {
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg,
+          rgb(255 255 255 / 1.4%) 0 1px,
+          transparent 1px 5px
+        );
+        content: "";
+        pointer-events: none;
+      }
+
+      .botanicals {
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.9;
       }
 
       h1 {
         margin: 0;
-        font-size: clamp(2.5rem, 8vw, 5rem);
-        font-weight: 600;
-        letter-spacing: -0.06em;
+        color: #f3ecd9;
+        font-size: clamp(2.8rem, 9vw, 6.5rem);
+        font-weight: 550;
+        letter-spacing: -0.065em;
+        line-height: 1;
+        text-align: center;
+        text-shadow: 0 2px 24px rgb(19 28 21 / 24%);
       }
 
-      .sombrero-letter {
-        position: relative;
-        display: inline-block;
-      }
+      @media (max-width: 600px) {
+        .botanicals {
+          width: 150%;
+          left: -25%;
+        }
 
-      .sombrero-letter::before,
-      .sombrero-letter::after {
-        position: absolute;
-        content: "";
-        transform: rotate(-9deg);
-      }
-
-      .sombrero-letter::before {
-        z-index: 1;
-        top: -0.16em;
-        left: -0.14em;
-        width: 1.2em;
-        height: 0.19em;
-        border: 0.035em solid #59331f;
-        border-radius: 50%;
-        background: #d76636;
-        box-shadow: inset 0 -0.04em #f3ca6d;
-      }
-
-      .sombrero-letter::after {
-        z-index: 2;
-        top: -0.52em;
-        left: 0.3em;
-        width: 0.45em;
-        height: 0.39em;
-        border: 0.035em solid #59331f;
-        border-radius: 48% 48% 10% 10%;
-        background: repeating-linear-gradient(
-          to bottom,
-          #f3ca6d 0 0.06em,
-          #c84d2d 0.06em 0.12em,
-          #f7e3ae 0.12em 0.17em,
-          #4f7852 0.17em 0.21em
-        );
+        h1 {
+          font-size: clamp(2.65rem, 12vw, 4rem);
+        }
       }
     </style>
   </head>
   <body>
     <main>
-      <h1><span class="sombrero-letter">H</span>ola, world!</h1>
+      <svg class="botanicals" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="petal" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#fff9e8" />
+            <stop offset="0.55" stop-color="#e7dfc4" />
+            <stop offset="1" stop-color="#c9c39f" />
+          </linearGradient>
+          <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7c8c58" />
+            <stop offset="1" stop-color="#405b43" />
+          </linearGradient>
+          <g id="calla">
+            <path d="M0 0 C-43-46-58-118-28-174 C-7-213 42-210 61-171 C86-119 48-57 0 0Z" fill="url(#petal)" stroke="#bdb58f" stroke-width="3" />
+            <path d="M-1-8 C-14-67 14-122 42-158 C36-105 26-54-1-8Z" fill="#fff9e8" opacity=".58" />
+            <path d="M5-28 C24-75 30-121 23-165" fill="none" stroke="#bd9142" stroke-linecap="round" stroke-width="8" />
+          </g>
+        </defs>
+
+        <g fill="none" stroke="#819060" stroke-linecap="round" stroke-width="9">
+          <path d="M225 300 C190 455 294 632 232 920" />
+          <path d="M336 380 C380 520 325 703 414 930" />
+          <path d="M1156 284 C1200 466 1084 666 1163 930" />
+          <path d="M1286 365 C1238 534 1327 717 1265 930" />
+        </g>
+
+        <g fill="url(#leaf)" stroke="#344b39" stroke-width="3">
+          <path d="M226 530 C127 489 83 526 72 584 C141 589 194 565 226 530Z" />
+          <path d="M254 663 C349 587 405 612 424 670 C363 702 305 692 254 663Z" />
+          <path d="M340 569 C281 496 295 439 344 407 C382 462 371 520 340 569Z" />
+          <path d="M1154 522 C1059 475 1003 508 991 565 C1061 581 1115 555 1154 522Z" />
+          <path d="M1174 688 C1261 612 1322 634 1340 691 C1281 724 1222 714 1174 688Z" />
+          <path d="M1282 563 C1224 491 1237 435 1286 402 C1325 456 1313 515 1282 563Z" />
+        </g>
+
+        <g fill="none" stroke="#9da174" stroke-linecap="round" stroke-width="3" opacity=".72">
+          <path d="M82 577 C134 565 180 550 226 530" />
+          <path d="M424 663 C367 657 312 662 254 663" />
+          <path d="M991 558 C1047 544 1101 531 1154 522" />
+          <path d="M1340 683 C1284 682 1226 687 1174 688" />
+        </g>
+
+        <g>
+          <use href="#calla" transform="translate(225 300) rotate(-12) scale(1.22)" />
+          <use href="#calla" transform="translate(336 380) rotate(12) scale(.84)" />
+          <use href="#calla" transform="translate(1156 284) rotate(10) scale(1.2)" />
+          <use href="#calla" transform="translate(1286 365) rotate(-14) scale(.86)" />
+        </g>
+      </svg>
+      <h1>Hola, world.</h1>
     </main>
   </body>
 </html>
