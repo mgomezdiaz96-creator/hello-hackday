@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hello, world!</title>
+    <title>Hola, world!</title>
     <style>
       :root {
         color-scheme: light;
@@ -25,11 +25,52 @@
         font-weight: 600;
         letter-spacing: -0.06em;
       }
+
+      .sombrero-letter {
+        position: relative;
+        display: inline-block;
+      }
+
+      .sombrero-letter::before,
+      .sombrero-letter::after {
+        position: absolute;
+        content: "";
+        transform: rotate(-9deg);
+      }
+
+      .sombrero-letter::before {
+        z-index: 1;
+        top: -0.16em;
+        left: -0.14em;
+        width: 1.2em;
+        height: 0.19em;
+        border: 0.035em solid #59331f;
+        border-radius: 50%;
+        background: #d76636;
+        box-shadow: inset 0 -0.04em #f3ca6d;
+      }
+
+      .sombrero-letter::after {
+        z-index: 2;
+        top: -0.52em;
+        left: 0.3em;
+        width: 0.45em;
+        height: 0.39em;
+        border: 0.035em solid #59331f;
+        border-radius: 48% 48% 10% 10%;
+        background: repeating-linear-gradient(
+          to bottom,
+          #f3ca6d 0 0.06em,
+          #c84d2d 0.06em 0.12em,
+          #f7e3ae 0.12em 0.17em,
+          #4f7852 0.17em 0.21em
+        );
+      }
     </style>
   </head>
   <body>
     <main>
-      <h1>Hello, world!</h1>
+      <h1><span class="sombrero-letter">H</span>ola, world!</h1>
     </main>
   </body>
 </html>
